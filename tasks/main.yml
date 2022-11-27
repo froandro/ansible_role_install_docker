@@ -1,52 +1,9 @@
 ---
-# tasks file for ansible_role_install_docker
+# tasks file for ansible_role_install_docker_
 
-- name: Collect facts
-  setup:
-  register: out
-
-- name: Install packages `apt-transport-https` `ca-certificates` `curl` `software-properties-common`
-  become: yes
-  apt: 
-    name: ['apt-transport-https', 'ca-certificates', 'curl', 'software-properties-common']
-    state: present
-    update_cache: yes
-
-- name: Add new GPG key for official Docker repository
-  become: yes
-  apt_key:
-    url: "{{ url_path }}/gpg" # https://download.docker.com/linux/ubuntu/gpg
-    state: present
-    keyring: /etc/apt/trusted.gpg.d/docker-archive-keyring.gpg
-
-- name: Add official Docker repository 
-  become: yes
-  apt_repository:
-    repo: deb {{ url_path }} {{ out.ansible_facts.ansible_distribution_release }} stable
-    state: present
-    filename: docker
-
-- name: Install packages `docker` `docker-compose`
-  become: yes
-  apt: 
-    name: ['docker-ce', 'docker-compose']
-    state: present
-    update_cache: yes 
-
-- name: Appending $USER to the `docker` group
-  become: yes
-  user:
-    name: "{{ out.ansible_facts.ansible_user_id }}"
-    groups: docker
-    append: yes
-  notify: Reboot_host
-
-- name: Make sure a `docker` service is running
-  systemd:
-    state: started
-    name: docker
-  
-#- debug:
-#    var: out
+- name: Install on Debian os family
+  include_tasks: task_Debian.yml
+  when:
+    ansible_os_family == 'Debian'
 
 ...
