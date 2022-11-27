@@ -1,5 +1,5 @@
 ---
-# tasks file for ansible_install_docker_compose
+# tasks file for ansible_role_install_docker
 
 - name: Collect facts
   setup:

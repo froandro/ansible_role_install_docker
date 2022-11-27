@@ -1,4 +1,4 @@
-Ansible_install_docker_compose 
+Ansible_role_install_docker 
 =========
 
 Роль устанавливает пакеты `docker`и `docker-compose` из оффициального репозитория Docker.
@@ -23,7 +23,7 @@ Example Playbook
 ```
     - hosts: Ubuntu
       roles:
-         - ansible_install_docker_compose 
+         - ansible_role_install_docker 
 ```
 
 License

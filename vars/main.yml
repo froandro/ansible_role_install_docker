@@ -1,2 +1,2 @@
 ---
-# vars file for ansible_install_docker_compose
+# vats file for ansible_role_install_docker

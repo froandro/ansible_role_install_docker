@@ -3,6 +3,6 @@
   hosts: all
   gather_facts: false
   tasks:
-    - name: "Include acme.ansible_install_docker_compose"
+    - name: "Include acme.ansible_role_install_docker"
       ansible.builtin.include_role:
-        name: "acme.ansible_install_docker_compose"
+        name: "acme.ansible_role_install_docker"

@@ -1,4 +1,4 @@
 ---
-# defaults file for ansible_install_docker_compose
+# defaults file for ansible_role_install_docker
 
 url_path: https://download.docker.com/linux/ubuntu
