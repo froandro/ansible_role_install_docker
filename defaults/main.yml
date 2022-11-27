@@ -1,0 +1,4 @@
+---
+# defaults file for ansible_install_docker_compose
+
+url_path: https://download.docker.com/linux/ubuntu
